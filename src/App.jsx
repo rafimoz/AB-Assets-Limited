@@ -1,12 +1,25 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import LandingPage from './pages/LandingPage' // Your main page component containing the Footer
-import PropertiesPage from './pages/PropertiesPage' // The real estate catalog component
+import LandingPage from './pages/LandingPage'
+import PropertiesPage from './pages/PropertiesPage'
 import PropertyDetailsPage from './pages/PropertyDetailsPage'
+import { FullPageLoader } from './components/FullPageLoader'
 
 export default function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulating initial data fetching or asset preloading
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <Router>
+      <FullPageLoader isLoading={loading} />
       <Routes>
         {/* Main Home Page */}
         <Route path="/" element={<LandingPage />} />

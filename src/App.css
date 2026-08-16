@@ -1,1 +1,45 @@
 @import "tailwindcss";
+
+
+@keyframes logoDraw {
+  0% {
+    stroke-dasharray: 1200;
+    stroke-dashoffset: 1200;
+    fill: transparent;
+    stroke: url(#logo-gradient);
+    stroke-width: 2px;
+  }
+  50% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+    stroke: url(#logo-gradient);
+    stroke-width: 2px;
+  }
+  75%, 100% {
+    stroke-dashoffset: 0;
+    fill: #ffffff;
+    stroke: transparent;
+    stroke-width: 0px;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+.animate-logo-draw {
+  animation: logoDraw 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 1.8s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

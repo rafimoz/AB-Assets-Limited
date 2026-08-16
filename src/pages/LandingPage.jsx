@@ -1,4 +1,4 @@
-import { useState  } from 'react'
+import { useState } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import '../App.css'
 import Footer from '../components/Footer';
@@ -859,7 +859,25 @@ function LandingPage() {
                 </div>
             </section>
 
-           <Footer />
+            {/* 6. Where To Find Us (Map Location Section) */}
+            <section className="max-w-6xl mx-auto px-6 py-16">
+                <h2 className="text-4xl sm:text-5xl mb-8 text-center font-bold tracking-tight text-black leading-tight">
+                    Where To Find Us
+                </h2>
+
+                <div className="w-full h-96 relative overflow-hidden">
+                    {/* Mock Interactive Map Frame */}
+                    <iframe
+                        title="Property Location Map"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5002.032889185061!2d90.49757020038057!3d23.812062826336877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c90002d40453%3A0xedb1f0708ff3a67d!2sMosque%20Sec%2012!5e0!3m2!1sen!2sbd!4v1786785246708!5m2!1sen!2sbd"
+                        className="w-full h-full rounded-xl border-0 grayscale opacity-90 hover:grayscale-0 transition-all duration-300"
+                        allowFullScreen=""
+                        loading="lazy"
+                    ></iframe>
+                </div>
+            </section>
+
+            <Footer />
         </>
     )
 }

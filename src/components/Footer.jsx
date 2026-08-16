@@ -24,7 +24,7 @@ export default function Footer() {
   return (
     <footer className="w-full bg-black text-white font-sans overflow-hidden mt-30">
       {/* Hero Image Section */}
-      <div className="relative w-full h-screen sm:h-screen lg:h-screen">
+      <div className="relative w-full h-75 ">
         {/* Background Image */}
         <img
           src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=2000&q=80"
