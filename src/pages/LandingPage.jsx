@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 // Reusable Logo Component
 const LogoSVG = () => (
     <svg className="w-36 md:w-48" viewBox="0 0 658 160" xmlns="http://www.w3.org/2000/svg">
-        <path d="M137.93 104.865H154.356C154.356 112.722 154.467 120.002 154.307 127.282C154.209 131.633 155.903 133.263 160.372 133.239C189.247 133.092 218.121 133.288 246.983 133.104C259.309 133.018 267.584 124.843 267.387 113.763C267.191 103.002 259.947 96.3717 247.168 96.3104C190.167 96.0408 133.167 95.9795 76.1667 95.8447C72.7784 95.8447 69.39 95.8447 65.4492 95.8447V78.931C68.101 78.931 70.9123 78.931 73.7359 78.931C130.012 78.931 186.288 78.9433 242.564 78.9678C262.513 78.9678 273.685 64.9589 269.13 45.5817C266.761 35.5315 257.787 28.092 245.878 27.8223C223.621 27.3198 201.351 27.4669 179.094 27.4056C166.318 27.3729 155.727 21.8494 147.322 10.8351C150.71 10.688 153.534 10.4307 156.357 10.4674C186.19 10.7738 216.034 11.2886 245.866 11.4112C264.158 11.4969 276.472 20.2357 283.506 36.561C290.222 52.151 286.146 71.5282 274.311 83.3555C273.292 84.3728 272.335 85.4514 271.181 86.6893C272.015 87.8536 272.58 88.9321 273.415 89.7411C284.28 100.22 287.103 112.807 281.579 126.534C275.821 140.85 264.207 148.277 248.935 148.436C213.947 148.816 178.959 148.633 143.97 148.375C141.957 148.363 138.286 145.716 138.225 144.196C137.758 131.302 137.955 118.396 137.955 104.89L137.93 104.865Z" fill="white" />
+        <path d="M137.93 104.865H154.356C154.356 112.722 154.467 120.002 154.307 127.282C154.209 131.633 155.903 133.263 160.372 133.239C189.247 133.092 218.121 133.288 246.983 133.104C259.309 133.018 267.584 124.843 267.387 113.763C267.191 103.002 259.947 96.3717 247.168 96.3104C190.167 96.0408 133.167 95.9795 76.1667 95.8447C72.7784 95.8447 69.39 95.8447 65.4492 95.8447V78.931C68.101 78.931 70.9123 78.931 73.7359 78.931C130.012 78.931 186.288 78.9433 242.564 78.9678C262.513 78.9678 273.685 64.9589 269.13 45.5817C266.761 35.5315 257.787 28.092 245.878 27.8223C223.621 27.3198 201.351 27.4669 179.094 27.4056C166.318 27.3729 155.727 21.8494 147.322 10.8351C150.71 10.688 153.534 10.4307 156.357 10.4674C186.19 10.7738 216.034 11.2886 245.866 11.4112C264.158 11.4969 276.472 20.2357 283.506 36.561C290.222 52.151 286.146 71.5282 274.311 83.3555C273.292 84.3728 272.335 85.4514 271.181 86.6893C272.015 87.8536 272.58 88.9321 273.415 89.7411C284.28 100.22 287.103 112.807 281.579 126.534C275.821 140.85 264.207 148.277 248.935 148.436C213.947 148.816 178.959 148.633 143.97 148.375C141.957 148.363 138.286 145.716 138.225 144.196C137.758 131.302 137.955 118.396 137.955 104.89L137.93 104.865Z" fill="red" />
         <path d="M155.656 71.0991H137.253C137.253 65.1058 137.302 59.3576 137.253 53.6094C137.106 38.044 127.346 27.957 111.681 27.81C88.4658 27.5893 65.2385 27.5893 42.0234 27.81C28.1263 27.9448 17.8508 36.8061 17.4457 50.6557C16.66 77.4724 17.0651 104.326 16.9792 131.155C16.9669 136.732 16.9792 142.296 16.9792 148.449H0.368907C0.270694 146.451 0.0497149 144.147 0.0497149 141.83C0.0251617 112.783 0.147928 83.7476 0.000608452 54.7002C-0.109881 33.5949 14.8308 10.4428 42.2076 11.1659C66.1101 11.8033 90.0495 11.0801 113.964 11.3988C134.871 11.6807 148.535 22.4907 153.029 42.8729C154.993 51.7587 154.796 61.1103 155.656 71.0991Z" fill="white" />
         <path d="M310.281 0H308.648C308.56 0 308.488 0.0713352 308.488 0.159332V159.626C308.488 159.714 308.56 159.785 308.648 159.785H310.281C310.369 159.785 310.44 159.714 310.44 159.626V0.159332C310.44 0.0713352 310.369 0 310.281 0Z" fill="white" />
         <path d="M582.014 17.8331V61.3774C582.014 62.4452 582.188 63.2026 582.524 63.662C582.859 64.1214 583.531 64.469 584.513 64.7298V65.9838H573.382V64.7298C574.365 64.469 575.036 64.1214 575.372 63.6744C575.708 63.2398 575.882 62.47 575.882 61.3774V17.8331H557.836C556.742 17.8331 555.971 17.9945 555.51 18.3297C555.05 18.665 554.714 19.323 554.478 20.3288H553.234V10.2715H554.478C554.714 11.2648 555.063 11.9353 555.51 12.2705C555.958 12.6058 556.742 12.7672 557.836 12.7672H600.047C601.142 12.7672 601.913 12.6058 602.373 12.2705C602.833 11.9353 603.169 11.2772 603.405 10.2715H604.649V20.3288H603.405C603.169 19.323 602.821 18.665 602.373 18.3297C601.913 17.9945 601.142 17.8331 600.047 17.8331H582.001H582.014Z" fill="white" />
@@ -75,6 +75,7 @@ function LandingPage() {
             beds: 3,
             baths: 2,
             area: '1100 sq ft',
+            type: 'Residential',
             location: 'Jolshiri Sector 09, Dhaka, Bangladesh',
             image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800',
         },
@@ -84,6 +85,7 @@ function LandingPage() {
             beds: 3,
             baths: 2,
             area: '1100 sq ft',
+            type: 'Residential',
             location: 'Banasree, Dhaka, Bangladesh',
             image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800',
         },
@@ -93,6 +95,7 @@ function LandingPage() {
             beds: 3,
             baths: 2,
             area: '1100 sq ft',
+            type: 'Residential',
             location: 'Jolshiri Sector 16, Dhaka, Bangladesh',
             image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=800',
         },
@@ -489,7 +492,7 @@ function LandingPage() {
                                 Highlighted <br />
                                 <span className="relative inline-block italic font-light">
                                     <span className="relative z-10">properties</span>
-                                    <span className="absolute bottom-1 left-0 right-0 h-4.5 sm:h-9 bg-[#eaff85] -z-0 transform -rotate-1"></span>
+                                    <span className="absolute bottom-1 left-0 right-0 h-5 sm:h-9 bg-[#eaff85] -z-0 transform -rotate-1"></span>
                                 </span>
                             </h2>
                         </div>
@@ -537,22 +540,18 @@ function LandingPage() {
                                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                 />
 
+                                <h1 className="absolute uppercase transform rotate-90 top-20 -right-10 text-center text-2xl font-thin font-stretch-120% text-white z-10">
+                                   {item.type}
+                                </h1>
+
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
 
                                 <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 text-white flex flex-col justify-end">
-                                    <h3 className="text-xl sm:text-2xl font-medium mb-1 tracking-wide">
+                                    <h3 className="text-2xl sm:text-3xl font-medium mb-1 tracking-wide">
                                         {item.title}
                                     </h3>
 
-                                    <div className="flex items-center gap-2 text-xs text-gray-300 mb-2.5">
-                                        <span>{item.beds} beds</span>
-                                        <span className="text-gray-500">|</span>
-                                        <span>{item.baths} bathroom</span>
-                                        <span className="text-gray-500">|</span>
-                                        <span>{item.area}</span>
-                                    </div>
-
-                                    <div className="flex items-center gap-1.5 text-xs text-gray-300">
+                                    <div className="flex items-center gap-1 text-sm text-gray-300">
                                         <svg
                                             className="w-3.5 h-3.5 shrink-0 text-white"
                                             fill="currentColor"
@@ -869,7 +868,7 @@ function LandingPage() {
                     {/* Mock Interactive Map Frame */}
                     <iframe
                         title="Property Location Map"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5002.032889185061!2d90.49757020038057!3d23.812062826336877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c90002d40453%3A0xedb1f0708ff3a67d!2sMosque%20Sec%2012!5e0!3m2!1sen!2sbd!4v1786785246708!5m2!1sen!2sbd"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d33121.2835227154!2d90.40684568663994!3d23.798454765559594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x800d3010b50e965%3A0x7015c488dd8ee94c!2sAB%20Assets%20Limited!5e1!3m2!1sen!2sbd!4v1786868208677!5m2!1sen!2sbd"
                         className="w-full h-full rounded-xl border-0 grayscale opacity-90 hover:grayscale-0 transition-all duration-300"
                         allowFullScreen=""
                         loading="lazy"
