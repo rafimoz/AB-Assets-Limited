@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 // Placeholder for your Logo SVG component. 
 // If you already have a separate Logo component, import it instead.
@@ -24,7 +25,7 @@ export default function Footer() {
   return (
     <footer className="w-full bg-black text-white font-sans overflow-hidden mt-30">
       {/* Hero Image Section */}
-      <div className="relative w-full h-screen sm:h-[600px] md:h-[700px] lg:h-[800px] xl:h-[900px] 2xl:h-[1000px]">
+      <div className="relative w-full sm:h-150 md:h-175 lg:h-200 xl:h-225 2xl:h-250">
         {/* Background Image */}
         <img
           src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=2000&q=80"
@@ -35,14 +36,14 @@ export default function Footer() {
         {/* --- GRADIENT OVERLAYS --- */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Top White Gradient: Smoothly transitions white background into the image */}
-          <div className="absolute top-0 left-0 right-0 h-48 sm:h-64 bg-linear-to-b from-white via-white/50 to-transparent z-10" />
+          <div className="absolute top-0 left-0 right-0 h-48 sm:h-64 bg-linear-to-b from-white via-white/50 to-transparent z-2" />
 
           {/* Bottom Dark Gradient: Transitions image into the black footer area */}
-          <div className="absolute bottom-0 left-0 right-0 h-72 sm:h-96 bg-linear-to-t from-black via-black/50 to-transparent z-10" />
+          <div className="absolute bottom-0 left-0 right-0 h-72 sm:h-96 bg-linear-to-t from-black via-black/50 to-transparent z-2" />
         </div>
 
         {/* Center Text & Button CTA */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-20">
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-5">
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-normal tracking-tight text-white leading-[1.15] max-w-4xl drop-shadow-md">
             Smart Solutions for a <br />
             Seamless <span className="font-serif italic font-light">Life</span>
@@ -99,24 +100,24 @@ export default function Footer() {
             </div>
             <ul className="space-y-2 text-xs sm:text-sm text-gray-300 font-normal">
               <li>
-                <a href="#home" className="hover:text-white transition-colors">
+                <Link to="/" className="hover:text-white transition-colors">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#properties" className="hover:text-white transition-colors">
+                <Link to="/properties" className="hover:text-white transition-colors">
                   Properties
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#about" className="hover:text-white transition-colors">
+                <Link to="/about" className="hover:text-white transition-colors">
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#blogs" className="hover:text-white transition-colors">
+                <Link to="/blogs" className="hover:text-white transition-colors">
                   Blogs
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

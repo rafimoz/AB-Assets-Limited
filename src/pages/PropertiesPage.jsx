@@ -12,7 +12,7 @@ export default function PropertiesPage() {
   const properties = [
     {
       id: 1,
-      title: 'BELAMOUR BY NAVANA',
+      title: 'THE STERLING BY AB ASSETS',
       location: 'Banani',
       type: 'RESIDENTIAL',
       image:
@@ -20,7 +20,7 @@ export default function PropertiesPage() {
     },
     {
       id: 2,
-      title: 'LUNARIS BY NAVANA',
+      title: 'LUNARIS BY AB ASSETS',
       location: 'Uttara',
       type: 'RESIDENTIAL',
       image:
@@ -28,7 +28,7 @@ export default function PropertiesPage() {
     },
     {
       id: 3,
-      title: 'EMINENCE BY NAVANA',
+      title: 'EMINENCE BY AB ASSETS',
       location: 'Niketan',
       type: 'RESIDENTIAL',
       image:
@@ -36,7 +36,7 @@ export default function PropertiesPage() {
     },
     {
       id: 4,
-      title: 'THE STERLING BY NAVANA',
+      title: 'THE STERLING BY AB ASSETS',
       location: 'Gulshan',
       type: 'RESIDENTIAL',
       image:
@@ -49,7 +49,7 @@ export default function PropertiesPage() {
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans">
       {/* 1. Header Bar */}
-      <header className="sticky top-0 z-50 bg-black text-white px-6 sm:px-12 py-3 flex items-center justify-between border-b border-gray-800">
+      <header className="sticky top-0 z-10 bg-black text-white px-6 sm:px-12 py-3 flex items-center justify-between border-b border-gray-800">
         <Link
           to="/"
           className="flex items-center space-x-2 text-xs font-medium tracking-widest uppercase hover:text-gray-300 transition-colors"
@@ -71,12 +71,12 @@ export default function PropertiesPage() {
 
         {/* Right Actions */}
         <div className="flex items-center space-x-6 text-xs tracking-widest uppercase">
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="border border-gray-600 px-3 py-1 hover:bg-white hover:text-black transition-colors"
           >
             CONTACT US
-          </a>
+          </Link>
         </div>
       </header>
 
@@ -87,9 +87,9 @@ export default function PropertiesPage() {
           alt="Properties Hero"
           className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20 flex items-end">
           <div className="text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-7xl mx-auto px-6 sm:px-12 py-10 w-full text-white">
-            <h1 className="text-3xl sm:text-5xl font-serif mt-1 font-normal tracking-tight">
+            <h1 className="text-3xl sm:text-5xl mt-1 font-normal tracking-tight">
               Our Properties
             </h1>
           </div>

@@ -4,6 +4,7 @@ import LandingPage from './pages/LandingPage'
 import PropertiesPage from './pages/PropertiesPage'
 import PropertyDetailsPage from './pages/PropertyDetailsPage'
 import { FullPageLoader } from './components/FullPageLoader'
+import About from './pages/About'
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -27,6 +28,7 @@ export default function App() {
         {/* Properties Catalog Page */}
         <Route path="/properties" element={<PropertiesPage />} />
         <Route path="/properties/:id" element={<PropertyDetailsPage />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </Router>
   )

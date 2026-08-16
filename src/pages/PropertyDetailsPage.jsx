@@ -7,7 +7,7 @@ export default function PropertyDetailsPage() {
 
   // Dynamic content mock matching the layout
   const property = {
-    title: 'BELAMOUR BY NAVANA',
+    title: 'BELAMOUR BY AB ASSETS',
     type: 'Residential',
     location: 'Banani, Dhaka',
     heroImage:
@@ -64,7 +64,7 @@ export default function PropertyDetailsPage() {
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans">
       {/* 1. Header Bar */}
-      <header className="sticky top-0 z-50 bg-black text-white px-6 sm:px-12 py-3 flex items-center justify-between border-b border-gray-800">
+      <header className="sticky top-0 z-10 bg-black text-white px-6 sm:px-12 py-3 flex items-center justify-between border-b border-gray-800">
         <Link
           to="/properties"
           className="flex items-center space-x-2 text-xs font-medium tracking-widest uppercase hover:text-gray-300 transition-colors"
@@ -102,12 +102,12 @@ export default function PropertyDetailsPage() {
           alt={property.title}
           className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20 flex items-end">
           <div className="text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-7xl mx-auto px-6 sm:px-12 py-10 w-full text-white">
             <span className="text-xs uppercase tracking-[0.3em] text-gray-300">
               {property.location}
             </span>
-            <h1 className="text-3xl sm:text-5xl font-serif mt-1 font-normal tracking-tight">
+            <h1 className="text-3xl sm:text-5xl mt-1 font-normal tracking-tight">
               {property.title}
             </h1>
           </div>
