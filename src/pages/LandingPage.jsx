@@ -1,9 +1,25 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import '../App.css'
 import Footer from '../components/Footer';
-
+import { motion, AnimatePresence } from "framer-motion";
 // Reusable Logo Component
+// Sample titles matching your layout structure
+const titles = [
+    <>
+        Find your best <br /> home to <span className="italic font-light">living</span>
+    </>,
+    <>
+        Discover luxury <br /> spaces for <span className="italic font-light">comfort</span>
+    </>,
+    <>
+        Experience modern <br /> design for <span className="italic font-light">life</span>
+    </>,
+    <>
+        Elevate your <br /> lifestyle with <span className="italic font-light">elegance</span>
+    </>,
+];
+
 const LogoSVG = () => (
     <svg className="w-36 md:w-48" viewBox="0 0 658 160" xmlns="http://www.w3.org/2000/svg">
         <path d="M137.93 104.865H154.356C154.356 112.722 154.467 120.002 154.307 127.282C154.209 131.633 155.903 133.263 160.372 133.239C189.247 133.092 218.121 133.288 246.983 133.104C259.309 133.018 267.584 124.843 267.387 113.763C267.191 103.002 259.947 96.3717 247.168 96.3104C190.167 96.0408 133.167 95.9795 76.1667 95.8447C72.7784 95.8447 69.39 95.8447 65.4492 95.8447V78.931C68.101 78.931 70.9123 78.931 73.7359 78.931C130.012 78.931 186.288 78.9433 242.564 78.9678C262.513 78.9678 273.685 64.9589 269.13 45.5817C266.761 35.5315 257.787 28.092 245.878 27.8223C223.621 27.3198 201.351 27.4669 179.094 27.4056C166.318 27.3729 155.727 21.8494 147.322 10.8351C150.71 10.688 153.534 10.4307 156.357 10.4674C186.19 10.7738 216.034 11.2886 245.866 11.4112C264.158 11.4969 276.472 20.2357 283.506 36.561C290.222 52.151 286.146 71.5282 274.311 83.3555C273.292 84.3728 272.335 85.4514 271.181 86.6893C272.015 87.8536 272.58 88.9321 273.415 89.7411C284.28 100.22 287.103 112.807 281.579 126.534C275.821 140.85 264.207 148.277 248.935 148.436C213.947 148.816 178.959 148.633 143.97 148.375C141.957 148.363 138.286 145.716 138.225 144.196C137.758 131.302 137.955 118.396 137.955 104.89L137.93 104.865Z" fill="red" />
@@ -33,6 +49,7 @@ function LandingPage() {
     const [openIndex, setOpenIndex] = useState(0)
     const navigate = useNavigate()
     const location = useLocation()
+    const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
 
     // Define nav links with path/target destinations
     const navLinks = [
@@ -122,9 +139,8 @@ function LandingPage() {
     const services = [
         {
             id: 1,
-            title: 'Property Marketing & Sales',
-            description:
-                'Lorem ipsum dolor sit amet consectetur. Adipiscing accumsan maecenas sed at viverra placerat sed eu pellentesque. Vitae condimentum lobortis sed venenatis massa. Nunc a nam fringilla vivamus augue.',
+            title: 'Luxury Residential Development',
+            description: "Developing modern, sustainable apartments and condominiums in premium locations like Bashundhara R/A and Jolshiri Abashon, built to international standards.",
             icon: (
                 <svg
                     className="w-5 h-5 text-gray-800"
@@ -144,9 +160,8 @@ function LandingPage() {
         },
         {
             id: 2,
-            title: 'Expert Buyer Representation',
-            description:
-                'Lorem ipsum dolor sit amet consectetur. Adipiscing accumsan maecenas sed at viverra placerat sed eu pellentesque. Vitae condimentum lobortis sed venenatis massa. Nunc a nam fringilla vivamus augue.',
+            title: "Commercial Space & Offices",
+            description: "Designing and constructing state-of-the-art commercial complexes and office spaces tailored for growing businesses, retail enterprises, and corporate hubs.",
             icon: (
                 <svg
                     className="w-5 h-5 text-gray-800"
@@ -167,9 +182,8 @@ function LandingPage() {
         },
         {
             id: 3,
-            title: 'Property Management Services',
-            description:
-                'Lorem ipsum dolor sit amet consectetur. Adipiscing accumsan maecenas sed at viverra placerat sed eu pellentesque. Vitae condimentum lobortis sed venenatis massa. Nunc a nam fringilla vivamus augue.',
+            title: "Land & Joint Venture Projects",
+            description: "Partnering with landowners across Dhaka to execute high-value joint venture developments that maximize property valuation, safety, and architectural elegance.",
             icon: (
                 <svg
                     className="w-5 h-5 text-gray-800"
@@ -189,9 +203,8 @@ function LandingPage() {
         },
         {
             id: 4,
-            title: 'Real Estate Investment & Advisory',
-            description:
-                'Lorem ipsum dolor sit amet consectetur. Adipiscing accumsan maecenas sed at viverra placerat sed eu pellentesque. Vitae condimentum lobortis sed venenatis massa. Nunc a nam fringilla vivamus augue.',
+            title: "Real Estate Investment Advisory",
+            description: "Offering strategic, data-driven consultancy for buyers and investors looking to secure high-yield property assets backed by the legacy of AB Group.",
             icon: (
                 <svg
                     className="w-5 h-5 text-gray-800"
@@ -291,24 +304,24 @@ function LandingPage() {
 
     const faqs = [
         {
-            question: 'How do I start searching for a property with Aurelian & Co?',
+            question: 'How do I start searching for a property with AB Assets Limited?',
             answer:
-                'Lorem ipsum dolor sit amet consectetur. Vestibulum sed malesuada maecenas neque et laoreet arcu. Purus pretium euismod lacus nibh massa vestibulum mauris in. Dui molestie augue fermentum eget. Quis nunc faucibus odio gravida est adipiscing. Phasellus ut non magna viverra iaculis feugiat blandit ut volutpat. Est mattis nunc maecenas tempus. Risus tellus interdum aliquam neque suspendisse vitae iaculis. Turpis sit eget id magnis libero nulla tellus aliquam. Rhoncus nunc tellus duis ipsum malesuada aliquet arcu leo. Viverra neque dolor lobortis tellus vitae risus sociis dis. Integer netus lectus quis tristique nec turpis. Dictumst nunc vitae ipsum viverra. Dictum dolor congue sit amet fames ut risus donec non. Ac mauris erat ipsum praesent nec lobortis nam at nisi.',
+                'You can browse our ongoing and upcoming residential and commercial projects directly on our website, or schedule an in-person consultation with our sales team. We will guide you through site visits in prime locations like Jolshiri Abashon and Bashundhara R/A to find a property that perfectly fits your lifestyle and investment goals.',
         },
         {
-            question: 'How can I determine my budget for buying a home?',
+            question: 'Where are AB Assets Limited’s key project locations in Dhaka?',
             answer:
-                'Lorem ipsum dolor sit amet consectetur. Vestibulum sed malesuada maecenas neque et laoreet arcu. Purus pretium euismod lacus nibh massa vestibulum mauris in. Dui molestie augue fermentum eget. Quis nunc faucibus odio gravida est adipiscing.',
+                'Our developments are strategically situated in Dhaka’s most coveted and fast-growing prime areas, with a major focus on Jolshiri Abashon and Bashundhara R/A. These locations offer superior road connectivity, modern urban planning, and high long-term investment value.',
         },
         {
-            question: 'What are the common mistakes to avoid purchasing a property?',
+            question: 'Does AB Assets Limited offer joint venture opportunities for landowners?',
             answer:
-                'Lorem ipsum dolor sit amet consectetur. Vestibulum sed malesuada maecenas neque et laoreet arcu. Purus pretium euismod lacus nibh massa vestibulum mauris in. Dui molestie augue fermentum eget.',
+                'Yes. Backed by the structural and engineering strength of the AB Group, we partner with landowners across Dhaka for joint venture property developments. We ensure transparent agreements, optimal land utilization, superior architectural design, and timely project delivery.',
         },
         {
-            question: 'How does Aurelian & Co assist with the mortgage application process?',
+            question: 'How does AB Assets Limited ensure construction quality and structural safety?',
             answer:
-                'Lorem ipsum dolor sit amet consectetur. Vestibulum sed malesuada maecenas neque et laoreet arcu. Purus pretium euismod lacus nibh massa vestibulum mauris in. Dui molestie augue fermentum eget.',
+                'As a sister concern of AB Group—home to AB Constructions Limited—we adhere to rigorous engineering standards, strict building codes, and premium construction materials. Every structure is engineered to offer maximum earthquake resistance, safety, and long-lasting durability.',
         },
     ]
 
@@ -323,6 +336,15 @@ function LandingPage() {
         // Handle email submission logic here
         setEmail('')
     }
+
+    // Cycle through titles every 4 seconds
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentTitleIndex((prevIndex) => (prevIndex + 1) % titles.length);
+        }, 4000);
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <>
             {/* Home / Hero Section */}
@@ -453,30 +475,9 @@ function LandingPage() {
 
                     {/* Paragraph & Get Started Button Container */}
                     <div className="flex flex-col items-start md:items-end self-end w-full max-w-lg gap-4 text-right">
-                        <p className="text-xs md:text-sm text-left md:text-right leading-relaxed text-gray-200 font-normal">
-                            Lorem ipsum dolor sit amet consectetur. Facilisis porttitor at vitae cursus morbi. In amet lobortis lectus nullam sed a purus volutpat faucibus. Pulvinar pellentesque ipsum est a posuere urna.
+                        <p className="text-xs italic md:text-sm text-left md:text-right leading-relaxed text-gray-200 font-normal">
+                            "Explore curated homes in prime locations with seamless, modern living spaces. Start your journey today to find the perfect place for your next chapter."
                         </p>
-
-                        <button
-                            onClick={(e) => scrollToSection(e, 'properties')}
-                            className="bg-white text-black font-medium px-6 py-2 rounded-full text-xs md:text-xs tracking-wide inline-flex items-center gap-2 transition-transform duration-200 hover:bg-gray-100 hover:scale-105 active:scale-95 shadow-md"
-                        >
-                            Get Started
-                            <svg
-                                className="w-3 h-3"
-                                viewBox="0 0 12 12"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M1 11L11 1M11 1H3M11 1V9"
-                                    stroke="currentColor"
-                                    strokeWidth="1.5"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                />
-                            </svg>
-                        </button>
                     </div>
 
                 </div>
@@ -499,7 +500,7 @@ function LandingPage() {
 
                         <div className="flex flex-col items-start md:items-end max-w-sm gap-4">
                             <p className="text-xs sm:text-sm text-gray-600 leading-relaxed md:text-right">
-                                Lorem ipsum dolor sit amet consectetur. Facilisis ddfd porttitor at vitae cursus morbi. In amet lobortis l
+                                Explore curated homes in prime locations with seamless, modern living spaces. Start your journey today to find the perfect place for your next chapter.
                             </p>
                             <a
                                 href="#properties"
@@ -541,7 +542,7 @@ function LandingPage() {
                                 />
 
                                 <h1 className="absolute uppercase transform rotate-90 top-20 -right-10 text-center text-2xl font-thin font-stretch-120% text-white z-10">
-                                   {item.type}
+                                    {item.type}
                                 </h1>
 
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
@@ -599,14 +600,18 @@ function LandingPage() {
 
                         {/* Statement Text */}
                         <p className="text-2xl sm:text-3xl md:text-4xl leading-tight sm:leading-snug max-w-4xl mx-auto font-normal text-gray-400">
-                            We are a team of passionate expert{' '}
+                            AB Assets Limited is a premier real estate venture of the AB Group of Companies—a trusted conglomerate with a legacy dating back to 1982.{' '}
                             <span className="text-black font-semibold">
-                                creating thoughtful, sustainable, and inspiring spaces.
+                                Specializing in high-end commercial and residential developments,
                             </span>{' '}
-                            from search to settlement,{' '}
-                            <span>we work with purpose and precision to bring</span>{' '}
+                            we shape modern urban living across Dhaka's most coveted addresses, including{' '}
                             <span className="text-black font-semibold">
-                                your dream house to life.
+                                Jolshiri Abashon and Bashundhara R/A.
+                            </span>{' '}
+                            Backed by unmatched structural expertise and ethical standards,{' '}
+                            <span>we work with purpose and precision to deliver</span>{' '}
+                            <span className="text-black font-semibold">
+                                architectural excellence and timeless spaces that elevate lifestyle and commerce.
                             </span>
                         </p>
                     </div>
@@ -619,7 +624,7 @@ function LandingPage() {
                                 What service we <br /> provide?
                             </h3>
                             <p className="text-xs sm:text-sm text-gray-600 max-w-xs md:text-right leading-relaxed">
-                                Lorem ipsum dolor sit amet consectetur. Facilisis porttitor at vitae cursus morbi. In amet lobortis I
+                                Delivering world-class residential and commercial real estate solutions across Dhaka's prime locations with backed engineering expertise
                             </p>
                         </div>
 
