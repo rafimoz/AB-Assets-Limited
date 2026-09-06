@@ -445,10 +445,11 @@ function LandingPage() {
                 <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col justify-between my-auto py-12 gap-12">
 
                     {/* Main Headline & Explore Link (Centered on Mobile) */}
+                    {/* Main Headline & Explore Link */}
                     <div className="flex flex-col items-center md:items-start max-w-3xl mx-auto md:mx-0 w-full text-center md:text-left">
 
-                        {/* Bottom-to-Top Sliding Animation Container */}
-                        <div className="relative overflow-hidden h-[130px] sm:h-[180px] lg:h-[230px] w-full">
+                        {/* CSS Grid Stack Container for Smooth Animated Text Heights */}
+                        <div className="grid grid-cols-1 grid-rows-1 overflow-hidden w-full">
                             <AnimatePresence mode="wait">
                                 <motion.h1
                                     key={currentTitleIndex}
@@ -457,9 +458,9 @@ function LandingPage() {
                                     exit={{ y: "-100%", opacity: 0 }}
                                     transition={{
                                         duration: 0.7,
-                                        ease: [0.16, 1, 0.3, 1], // Smooth cubic-bezier curve
+                                        ease: [0.16, 1, 0.3, 1],
                                     }}
-                                    className="absolute inset-0 text-5xl sm:text-7xl lg:text-8xl font-normal leading-[1.05] tracking-tight"
+                                    className="col-start-1 row-start-1 text-4xl sm:text-5xl lg:text-6xl font-normal leading-tight tracking-tight py-1"
                                 >
                                     {titles[currentTitleIndex]}
                                 </motion.h1>
@@ -470,11 +471,11 @@ function LandingPage() {
                         <a
                             href="#properties"
                             onClick={(e) => scrollToSection(e, 'properties')}
-                            className="inline-flex items-center gap-2 mt-2 ml-1 text-sm tracking-wide font-medium border-b border-white pb-0.5 group hover:opacity-80 transition-opacity"
+                            className="inline-flex items-center gap-2 mt-4 ml-0 sm:ml-1 lg:ml-1 text-sm tracking-wide font-medium border-b border-white pb-0.5 group hover:opacity-80 transition-opacity"
                         >
-                            Explore Properties
+                            <span>Explore Properties</span>
                             <svg
-                                className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                                className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                                 viewBox="0 0 12 12"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -489,14 +490,12 @@ function LandingPage() {
                             </svg>
                         </a>
                     </div>
-
                     {/* Paragraph Container (Centered on Mobile) */}
                     <div className="flex flex-col items-center md:items-end self-center md:self-end w-full max-w-lg gap-4 text-center md:text-right">
                         <p className="text-xs italic md:text-sm leading-relaxed text-gray-200 font-normal">
                             "Explore curated homes in prime locations with seamless, modern living spaces. Start your journey today to find the perfect place for your next chapter."
                         </p>
                     </div>
-
                 </div>
             </section>
 
@@ -519,8 +518,8 @@ function LandingPage() {
                             <p className="text-xs sm:text-sm text-gray-600 leading-relaxed md:text-right">
                                 Explore curated homes in prime locations with seamless, modern living spaces. Start your journey today to find the perfect place for your next chapter.
                             </p>
-                            <a
-                                href="#properties"
+                            <Link
+                                to="/properties"
                                 className="inline-flex items-center gap-1.5 bg-[#eaff85] hover:bg-[#d8f858] text-gray-900 text-xs font-semibold px-4 py-2 rounded-full transition-all shadow-sm"
                             >
                                 View all
@@ -538,7 +537,7 @@ function LandingPage() {
                                         strokeLinejoin="round"
                                     />
                                 </svg>
-                            </a>
+                            </Link>
                         </div>
                     </div>
 
@@ -675,7 +674,7 @@ function LandingPage() {
             </section>
 
             <section className="w-full max-w-5xl mx-auto py-60 p-4 sm:p-6 font-sans">
-                <div className="relative w-full aspect-[16/9] md:aspect-[21/10] rounded-2xl overflow-hidden bg-gray-900 shadow-2xl group">
+                <div className="relative w-full aspect-video md:aspect-21/10 rounded-2xl overflow-hidden bg-gray-900 shadow-2xl group">
 
                     {/* Video / Image Display */}
                     {isPlaying ? (
