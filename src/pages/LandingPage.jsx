@@ -4,22 +4,21 @@ import '../App.css'
 import Footer from '../components/Footer';
 import { motion, AnimatePresence } from "framer-motion";
 // Reusable Logo Component
-// Sample titles matching your layout structure
+// Real-estate-focused titles (Residential, Commercial, Luxury, Joint Venture)
 const titles = [
     <>
         Find your best <br /> home to <span className="italic font-light">living</span>
     </>,
     <>
-        Discover luxury <br /> spaces for <span className="italic font-light">comfort</span>
+        Premium spaces <br /> for modern <span className="italic font-light">business</span>
     </>,
     <>
-        Experience modern <br /> design for <span className="italic font-light">life</span>
+        Luxury living <br /> in prime <span className="italic font-light">locations</span>
     </>,
     <>
-        Elevate your <br /> lifestyle with <span className="italic font-light">elegance</span>
+        Unlocking potential <br /> in land <span className="italic font-light">ventures</span>
     </>,
 ];
-
 const LogoSVG = () => (
     <svg className="w-36 md:w-48" viewBox="0 0 658 160" xmlns="http://www.w3.org/2000/svg">
         <path d="M137.93 104.865H154.356C154.356 112.722 154.467 120.002 154.307 127.282C154.209 131.633 155.903 133.263 160.372 133.239C189.247 133.092 218.121 133.288 246.983 133.104C259.309 133.018 267.584 124.843 267.387 113.763C267.191 103.002 259.947 96.3717 247.168 96.3104C190.167 96.0408 133.167 95.9795 76.1667 95.8447C72.7784 95.8447 69.39 95.8447 65.4492 95.8447V78.931C68.101 78.931 70.9123 78.931 73.7359 78.931C130.012 78.931 186.288 78.9433 242.564 78.9678C262.513 78.9678 273.685 64.9589 269.13 45.5817C266.761 35.5315 257.787 28.092 245.878 27.8223C223.621 27.3198 201.351 27.4669 179.094 27.4056C166.318 27.3729 155.727 21.8494 147.322 10.8351C150.71 10.688 153.534 10.4307 156.357 10.4674C186.19 10.7738 216.034 11.2886 245.866 11.4112C264.158 11.4969 276.472 20.2357 283.506 36.561C290.222 52.151 286.146 71.5282 274.311 83.3555C273.292 84.3728 272.335 85.4514 271.181 86.6893C272.015 87.8536 272.58 88.9321 273.415 89.7411C284.28 100.22 287.103 112.807 281.579 126.534C275.821 140.85 264.207 148.277 248.935 148.436C213.947 148.816 178.959 148.633 143.97 148.375C141.957 148.363 138.286 145.716 138.225 144.196C137.758 131.302 137.955 118.396 137.955 104.89L137.93 104.865Z" fill="red" />
@@ -337,19 +336,21 @@ function LandingPage() {
         setEmail('')
     }
 
-    // Cycle through titles every 4 seconds
+    // Automatically cycle titles every 4 seconds
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentTitleIndex((prevIndex) => (prevIndex + 1) % titles.length);
-        }, 4000);
+        }, 3500);
         return () => clearInterval(interval);
     }, []);
 
     return (
         <>
             {/* Home / Hero Section */}
-            <section id="home" className="relative w-full min-h-screen bg-[#111111] bg-[url('https://abcl.com.bd/wp-content/uploads/2025/09/6-1.jpg')] bg-cover bg-center px-4 py-6 text-white flex flex-col justify-between font-sans sm:px-6 md:px-12 md:py-8 lg:px-8">
-
+            <section
+                id="home"
+                className="relative w-full min-h-screen bg-[#111111] bg-[url('https://abcl.com.bd/wp-content/uploads/2025/09/6-1.jpg')] bg-cover bg-center px-4 py-6 text-white flex flex-col justify-between font-sans sm:px-6 md:px-12 md:py-8 lg:px-8"
+            >
                 {/* Top Overlay Gradient for readability */}
                 <div className="absolute inset-0 bg-linear-to-b from-black/40 via-transparent to-black/60 pointer-events-none" />
 
@@ -443,17 +444,33 @@ function LandingPage() {
                 {/* Main Hero Content Area */}
                 <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col justify-between my-auto py-12 gap-12">
 
-                    {/* Main Headline & Explore Link */}
-                    <div className="flex flex-col items-start max-w-3xl">
-                        <h1 className="text-5xl sm:text-7xl lg:text-8xl font-normal leading-[1.05] tracking-tight">
-                            Find your best <br /> home to <span className="italic font-light">living</span>
-                        </h1>
+                    {/* Main Headline & Explore Link (Centered on Mobile) */}
+                    <div className="flex flex-col items-center md:items-start max-w-3xl mx-auto md:mx-0 w-full text-center md:text-left">
+
+                        {/* Bottom-to-Top Sliding Animation Container */}
+                        <div className="relative overflow-hidden h-[130px] sm:h-[180px] lg:h-[230px] w-full">
+                            <AnimatePresence mode="wait">
+                                <motion.h1
+                                    key={currentTitleIndex}
+                                    initial={{ y: "100%", opacity: 0 }}
+                                    animate={{ y: "0%", opacity: 1 }}
+                                    exit={{ y: "-100%", opacity: 0 }}
+                                    transition={{
+                                        duration: 0.7,
+                                        ease: [0.16, 1, 0.3, 1], // Smooth cubic-bezier curve
+                                    }}
+                                    className="absolute inset-0 text-5xl sm:text-7xl lg:text-8xl font-normal leading-[1.05] tracking-tight"
+                                >
+                                    {titles[currentTitleIndex]}
+                                </motion.h1>
+                            </AnimatePresence>
+                        </div>
 
                         {/* Underlined Sub-link with Diagonal Arrow Icon */}
                         <a
                             href="#properties"
                             onClick={(e) => scrollToSection(e, 'properties')}
-                            className="ml-1 inline-flex items-center gap-2 mt-6 text-sm tracking-wide font-medium border-b border-white pb-0.5 group hover:opacity-80 transition-opacity"
+                            className="inline-flex items-center gap-2 mt-2 ml-1 text-sm tracking-wide font-medium border-b border-white pb-0.5 group hover:opacity-80 transition-opacity"
                         >
                             Explore Properties
                             <svg
@@ -473,9 +490,9 @@ function LandingPage() {
                         </a>
                     </div>
 
-                    {/* Paragraph & Get Started Button Container */}
-                    <div className="flex flex-col items-start md:items-end self-end w-full max-w-lg gap-4 text-right">
-                        <p className="text-xs italic md:text-sm text-left md:text-right leading-relaxed text-gray-200 font-normal">
+                    {/* Paragraph Container (Centered on Mobile) */}
+                    <div className="flex flex-col items-center md:items-end self-center md:self-end w-full max-w-lg gap-4 text-center md:text-right">
+                        <p className="text-xs italic md:text-sm leading-relaxed text-gray-200 font-normal">
                             "Explore curated homes in prime locations with seamless, modern living spaces. Start your journey today to find the perfect place for your next chapter."
                         </p>
                     </div>
