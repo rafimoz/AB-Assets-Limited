@@ -87,33 +87,33 @@ function LandingPage() {
     const properties = [
         {
             id: 1,
-            title: 'Aurora',
+            title: 'GAUSE PAK AB TOWER',
             beds: 3,
             baths: 2,
-            area: '1100 sq ft',
-            type: 'Residential',
-            location: 'Jolshiri Sector 09, Dhaka, Bangladesh',
-            image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800',
+            area: '1,500 – 13,500 SFT',
+            type: 'Commercial',
+            location: 'Motijheel, Dhaka',
+            image: 'https://abcl.com.bd/wp-content/uploads/2025/09/WhatsApp-Image-2025-08-28-at-2.23.18-PM.jpeg',
         },
         {
             id: 2,
-            title: 'Suburban Modern',
+            title: 'MORNING GLORY',
             beds: 3,
             baths: 2,
-            area: '1100 sq ft',
+            area: '2,850 SFT',
             type: 'Residential',
-            location: 'Banasree, Dhaka, Bangladesh',
-            image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800',
+            location: 'Jolshiri Abashon, Dhaka',
+            image: 'https://lh3.googleusercontent.com/d/1BhjNsS6-Ks5rm6cfxFFa2S87IGiY3Beq',
         },
         {
             id: 3,
-            title: 'Serendipity',
+            title: 'SERENDIPITY',
             beds: 3,
             baths: 2,
-            area: '1100 sq ft',
+            area: '2,850 SFT',
             type: 'Residential',
-            location: 'Jolshiri Sector 16, Dhaka, Bangladesh',
-            image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=800',
+            location: 'Jolshiri Abashon, Dhaka',
+            image: 'https://lh3.googleusercontent.com/d/18CSHTDHxyycpDtD4V-JU56sWpxomw_Wq',
         },
     ];
 
@@ -564,7 +564,7 @@ function LandingPage() {
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
 
                                 <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 text-white flex flex-col justify-end">
-                                    <h3 className="text-2xl sm:text-3xl font-medium mb-1 tracking-wide">
+                                    <h3 className="text-xl sm:text-2xl font-medium mb-1 tracking-wide">
                                         {item.title}
                                     </h3>
 
