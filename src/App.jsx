@@ -5,7 +5,7 @@ import PropertiesPage from './pages/PropertiesPage'
 import PropertyDetailsPage from './pages/PropertyDetailsPage'
 import { FullPageLoader } from './components/FullPageLoader'
 import About from './pages/About'
-import Contact from './pages/contact'
+import Contact from './pages/Contact'
 import ScrollToTop from './ScrollToTop' // Import the ScrollToTop component
 
 export default function App() {
