@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import Footer from '../components/Footer'
 import { ChevronDown, ArrowRight, Quote, PhoneCall, Mail, MapPin, Building, ShieldCheck, Award, HeartHandshake, Sparkles, Menu, X } from 'lucide-react';
 
@@ -14,7 +15,7 @@ export function About() {
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-1000 scale-105"
             style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2000&auto=format&fit=crop')`
+              backgroundImage: `url('https://abcl.com.bd/wp-content/uploads/2025/09/WhatsApp-Image-2025-08-28-at-2.23.17-PM-5.jpeg')`
             }}
           >
             {/* Subtle dark gradient overlay to ensure readable white hero title */}
@@ -23,8 +24,8 @@ export function About() {
 
           {/* Hero Main Content */}
           <div className="relative z-10 flex flex-col items-center justify-center flex-1 px-4 pt-20">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extralight tracking-[0.15em] text-white font-serif mb-4">
-              About AB ASSETS
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extralight tracking-[0.15em] text-white mb-4">
+              About Us
             </h1>
             <p className="text-sm md:text-base tracking-[0.35em] text-cyan-200 uppercase font-light">
               redesigning lives
@@ -42,9 +43,7 @@ export function About() {
         { }
         <section id="intro" className="max-w-4xl mx-auto px-6 pt-20 pb-16 text-center">
           <p className="text-sm md:text-base lg:text-lg leading-relaxed text-gray-700 font-light tracking-wide">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas vitae gravida turpis.
-            Libero scelerisque vivamus imperdiet. Augue nisl vestibulum tristique augue lacus in sed dui.
-            Mauris velit.
+            AB Assets Limited is a leading real estate developer operating under the corporate umbrella of AB Group of Companies, bringing over 40 years of excellence, trust, and multi-sector expertise to modern property development.
           </p>
         </section>
 
@@ -67,33 +66,30 @@ export function About() {
               {/* Blue Accent Vertical Line + Bold Highlight */}
               <div className="flex items-start space-x-4">
                 <div className="w-1.5 min-w-[6px] h-16 bg-[#00A8CC] rounded-full mt-1" />
-                <p className="text-base md:text-lg font-medium text-gray-800 leading-snug tracking-wide">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue non vulputate pretium,
-                  dignissim donec.
+                <p className="text-xl md:text-2xl font-medium text-gray-800 leading-snug tracking-wide">
+                  Building Prime Real Estate & Modern Living Spaces with Uncompromised Trust.
                 </p>
               </div>
 
               {/* Paragraph Text Block */}
-              <div className="space-y-4 text-xs md:text-sm text-gray-600 leading-relaxed font-light tracking-wide">
+              <div className="space-y-4 text-sm md:text-base text-gray-600 leading-relaxed font-light tracking-wide">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue non vulputate pretium,
-                  dignissim donec non. Habitasse integer in nunc nec pulvinar, viverra pellentesque id
-                  tortor. Elementum mi quam aliquam nunc non mi amet pulvinar vulputate vel.
+                  AB Assets Limited is a premier real estate concern under the corporate umbrella of AB Group of Companies, which began its journey in 1982. Grounded in more than four decades of group excellence across heavy construction, infrastructure, and trading, we are dedicated to crafting modern residential and commercial properties in prime locations.
                 </p>
                 <p>
-                  Viverra velit, quis dignissim feugiat. Nisl ac visual, donec fuisse pulvinar vel.
+                  Every project we undertake reflects our commitment to superior quality, innovative architecture, and timely delivery. By combining structural engineering precision with contemporary interior aesthetics, AB Assets Limited creates curated spaces designed to elevate modern living and deliver long-term investment value.
                 </p>
               </div>
 
               {/* Outline Pill Action Button */}
               <div className="pt-4">
-                <a
-                  href="#contact"
+                <Link
+                  to="/contact"
                   className="inline-flex items-center space-x-3 px-8 py-3 rounded-full border border-gray-400 hover:border-[#00A8CC] text-xs font-medium tracking-[0.2em] text-gray-800 uppercase hover:bg-[#00A8CC] hover:text-white transition-all duration-300 shadow-sm"
                 >
                   <span>Get In Touch With Us</span>
                   <ArrowRight size={14} />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -167,23 +163,23 @@ export function About() {
                 <div className="absolute bottom-16 -right-6 left-12 h-[2px] bg-[#00A8CC]" />
 
                 {/* Main Executive Image Frame */}
-                <div className="relative z-10 bg-gradient-to-b from-[#FAF7F2] to-[#EFEAE2] p-2 shadow-xl border border-gray-200 rounded-sm overflow-hidden">
+                <div className="relative z-10 shadow-xl rounded-lg overflow-hidden">
                   <img
                     src="https://lh3.googleusercontent.com/d/1AQfoO9E4TfIHP7Xz9uoW_uR5XF0T2vnS"
-                    className="w-full h-[380px] sm:h-[420px] object-cover object-top filter grayscale hover:grayscale-0 transition-all duration-500"
+                    className="w-full h-[380px] sm:h-[420px] object-cover object-top transition-all duration-500"
                   />
                 </div>
               </div>
 
               {/* Executive Caption Block */}
               <div className="mt-6 text-center lg:text-left">
-                <h5 className="text-xs font-bold tracking-[0.25em] text-gray-800 uppercase">
+                <h5 className="text-lg font-bold tracking-[0.25em] text-gray-800 uppercase">
                   MURSALIN AHMAD
                 </h5>
-                <p className="text-[11px] text-gray-500 uppercase tracking-widest mt-1">
+                <p className="text-sm text-gray-500 uppercase tracking-widest mt-1">
                   MANAGING DIRECTOR
                 </p>
-                <p className="text-[10px] text-gray-400 uppercase tracking-widest">
+                <p className="text-xs text-gray-400 uppercase tracking-widest">
                   AB ASSETS LIMITED
                 </p>
               </div>
@@ -197,17 +193,10 @@ export function About() {
               </div>
 
               {/* Primary Quote Statement */}
-              <blockquote className="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-800 leading-snug font-serif tracking-normal">
-                Lorem ipsum dolor sit amet, consectetur. Nisl vulputate mus velit est amet, id.
-                Arcu, sed aenean tortor pellentesque id dolor integer. Dictum dictum sit.
+              <blockquote className="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-800 leading-snug font-medium tracking-normal">
+                At AB Assets Limited, our mission is to create exceptional living spaces that combine modern architecture with prime locations. Supported by the 40-year legacy of the AB Group of Companies, we leverage decades of expertise across infrastructure and heavy development to deliver real estate projects of uncompromised quality.
+                Whether developing premium residential communities or commercial assets, we remain committed to transparency, timely execution, and elevating the standards of urban living.
               </blockquote>
-
-              {/* Supporting Paragraph */}
-              <p className="text-xs md:text-sm text-gray-600 leading-relaxed font-light tracking-wide max-w-xl">
-                Lorem ipsum dolor sit amet, consectetur. Nisl vulputate mus velit est amet, id.
-                Arcu, sed aenean tortor pellentesque id dolor integer. Dictum dictum sit.
-                Donec elementum, feugiat placerat vulputate. Augue vivamus, tristique egestas.
-              </p>
             </div>
 
           </div>

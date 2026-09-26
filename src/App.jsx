@@ -5,6 +5,7 @@ import PropertiesPage from './pages/PropertiesPage'
 import PropertyDetailsPage from './pages/PropertyDetailsPage'
 import { FullPageLoader } from './components/FullPageLoader'
 import About from './pages/About'
+import Contact from './pages/contact'
 import ScrollToTop from './ScrollToTop' // Import the ScrollToTop component
 
 export default function App() {
@@ -27,6 +28,7 @@ export default function App() {
         <Route path="/properties" element={<PropertiesPage />} />
         <Route path="/properties/:id" element={<PropertyDetailsPage />} />
         <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
   )

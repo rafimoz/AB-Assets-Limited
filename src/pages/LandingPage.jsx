@@ -54,9 +54,9 @@ function LandingPage() {
     const navLinks = [
         { name: 'Home', path: '/', isPage: true },
         { name: 'Properties', path: '/properties', isPage: true },
-        { name: 'About Us', targetId: 'about', isPage: false },
-        { name: 'Blogs', targetId: 'blogs', isPage: false },
-        { name: 'Contact Us', targetId: 'contact', isPage: false },
+        { name: 'About Us', path: '/About', isPage: true },
+        { name: 'Blogs', path: '/blogs', isPage: true },
+        { name: 'Contact Us', path: '/contact', isPage: true },
     ]
 
     const handleNavClick = (e, item) => {
