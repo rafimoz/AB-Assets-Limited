@@ -44,7 +44,7 @@ const Contact = () => {
 
     return (
         <>
-            <section className="relative h-screen min-h-[400px] flex flex-col justify-between items-center text-center overflow-hidden">
+            <section className="relative h-screen min-h-100 flex flex-col justify-between items-center text-center overflow-hidden">
                 {/* Background Dark Rooftop Image with Overlay */}
                 <div
                     className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-1000 scale-105"
@@ -53,7 +53,7 @@ const Contact = () => {
                     }}
                 >
                     {/* Subtle dark gradient overlay to ensure readable white hero title */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#101010]/90" />
+                    <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/40 to-[#101010]/90" />
                 </div>
 
                 {/* Hero Main Content */}
@@ -78,7 +78,7 @@ const Contact = () => {
                 2. CONTACT INFO & GOOGLE MAP SECTION
             ========================================== */}
             <section className="w-full py-30 px-4 sm:px-6 md:px-12 bg-slate-50 relative overflow-hidden">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 min-h-[380px]">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 min-h-95">
                     {/* Left: Contact Details */}
                     <div className="md:col-span-5 p-8 sm:p-12 md:p-16 flex flex-col justify-center space-y-6 bg-white">
                         {/* Address */}
@@ -152,7 +152,7 @@ const Contact = () => {
                     </div>
                     {/* Right: Embedded Google Map */}
                     {/* Right: Embedded Google Map */}
-                    <div className="md:col-span-7 w-full h-[320px] md:h-auto bg-gray-200 relative min-h-[350px]">
+                    <div className="md:col-span-7 w-full h-80 md:h-auto bg-gray-200 relative min-h-87.5">
                         <iframe
                             title="AB Assets Limited Office Location"
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d33121.2835227154!2d90.40684568663994!3d23.798454765559594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x800d3010b50e965%3A0x7015c488dd8ee94c!2sAB%20Assets%20Limited!5e1!3m2!1sen!2sbd!4v1786868208677!5m2!1sen!2sbd"
@@ -182,13 +182,13 @@ const Contact = () => {
                     <div className="rounded-2xl shadow-2xl border border-gray-100 overflow-hidden grid grid-cols-1 md:grid-cols-12">
 
                         {/* Form Left Image */}
-                        <div className="md:col-span-6 relative min-h-[260px] md:min-h-[480px]">
+                        <div className="md:col-span-6 relative min-h-65 md:min-h-120">
                             <img
                                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop"
                                 alt="Modern Office Meeting"
                                 className="absolute inset-0 w-full h-full object-cover"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent md:hidden" />
+                            <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent md:hidden" />
                         </div>
 
                         {/* Form Right Inputs */}
