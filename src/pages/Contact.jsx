@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { ChevronDown, MapPin, Phone, MessageSquare, Mail, Send, CheckCircle2 } from 'lucide-react';
-import Footer from '../components/Footer'
+import Footer from '../components/Footer';
 
 const Contact = () => {
+    // Result message state
+    const [result, setResult] = useState("");
+
     // Form state management
     const [formData, setFormData] = useState({
         fullName: '',
@@ -24,26 +27,57 @@ const Contact = () => {
 
     const onSubmit = async (event) => {
         event.preventDefault();
+        setIsSubmitting(true);
         setResult("Sending....");
-        const formData = new FormData(event.target);
-        formData.append("access_key", "4ec3e358-360d-47fa-9d48-f714505b2e47");
 
-        const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            body: formData
-        });
+        const dataToSend = new FormData(event.target);
+        dataToSend.append("access_key", "4ec3e358-360d-47fa-9d48-f714505b2e47");
 
-        const data = await response.json();
-        if (data.success) {
-            setResult("Form Submitted Successfully");
-            event.target.reset();
-        } else {
-            setResult("Error");
+        // Ensure Web3Forms maps the email field correctly for reply-to
+        dataToSend.append("email", formData.emailAddress);
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: dataToSend
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                setResult("Form Submitted Successfully");
+                setIsSubmitted(true);
+
+                // Clear state inputs
+                setFormData({
+                    fullName: '',
+                    phoneNumber: '',
+                    emailAddress: '',
+                    message: ''
+                });
+
+                // Auto-reset success message back to form after 5 seconds
+                setTimeout(() => {
+                    setIsSubmitted(false);
+                    setResult("");
+                }, 5000);
+            } else {
+                console.error("Submission error:", data);
+                setResult(data.message || "Error submitting form");
+                alert(data.message || "Something went wrong. Please try again.");
+            }
+        } catch (error) {
+            console.error("Network error:", error);
+            setResult("Network error");
+            alert("Failed to submit form. Please check your connection.");
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
     return (
         <>
+
             <section className="relative h-screen min-h-100 flex flex-col justify-between items-center text-center overflow-hidden">
                 {/* Background Dark Rooftop Image with Overlay */}
                 <div
@@ -80,7 +114,7 @@ const Contact = () => {
             <section className="w-full py-30 px-4 sm:px-6 md:px-12 bg-slate-50 relative overflow-hidden">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 min-h-95">
                     {/* Left: Contact Details */}
-                    <div className="md:col-span-5 p-8 sm:p-12 md:p-16 flex flex-col justify-center space-y-6 bg-white">
+                    <div className="md:col-span-5 p-2 sm:p-4 md:p-8 flex flex-col justify-center space-y-6 bg-white">
                         {/* Address */}
                         <div className="flex items-start gap-4 group">
                             <div className="p-2.5 rounded-full bg-amber-50 text-amber-600 group-hover:bg-amber-500 group-hover:text-white transition-colors duration-200">
@@ -192,7 +226,7 @@ const Contact = () => {
                         </div>
 
                         {/* Form Right Inputs */}
-                        <div className="md:col-span-6 p-8 sm:p-10 md:p-12 flex flex-col justify-center">
+                        <div className="md:col-span-6 p-2 sm:p-4 md:p-8 flex flex-col justify-center">
                             <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-6 uppercase">
                                 CONTACT US
                             </h2>
@@ -208,7 +242,6 @@ const Contact = () => {
                             ) : (
                                 <form onSubmit={onSubmit} className="space-y-4">
                                     {/* Full Name */}
-
                                     <div>
                                         <input
                                             type="text"
@@ -265,7 +298,7 @@ const Contact = () => {
                                         <button
                                             type="submit"
                                             disabled={isSubmitting}
-                                            className="w-full a px-8 py-3 border border-gray-800 text-gray-900 font-semibold text-xs uppercase tracking-wider rounded-lg hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-900 transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-50"
+                                            className="w-full px-8 py-3 border border-gray-800 text-gray-900 font-semibold text-xs uppercase tracking-wider rounded-lg hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-900 transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-50"
                                         >
                                             {isSubmitting ? (
                                                 <span>Sending...</span>
@@ -286,7 +319,7 @@ const Contact = () => {
             </section>
             <Footer />
         </>
-    )
-}
+    );
+};
 
-export default Contact
+export default Contact;
