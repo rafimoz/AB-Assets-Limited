@@ -294,7 +294,7 @@ export default function PropertiesPage() {
                     to={`/properties/${item.id}`}
                     className="group cursor-pointer flex flex-col"
                   >
-                    <div className="relative w-full aspect-[4/5] rounded-lg bg-gray-100 overflow-hidden mb-3">
+                    <div className="relative w-full aspect-4/5 rounded-lg bg-gray-100 overflow-hidden mb-3">
                       <img
                         src={item.image}
                         alt={item.title}
@@ -304,7 +304,7 @@ export default function PropertiesPage() {
                           e.target.src = DEFAULT_HERO
                         }}
                       />
-                      <span className="absolute right-3 top-10 text-[20px] tracking-[0.25em] text-white/80 uppercase [writing-mode:vertical-lr] font-light">
+                      <span className="absolute right-3 top-7 text-[20px] tracking-[0.25em] text-white/80 uppercase [writing-mode:vertical-lr] font-light">
                         {item.type}
                       </span>
                     </div>

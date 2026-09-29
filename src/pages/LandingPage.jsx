@@ -50,6 +50,18 @@ function LandingPage() {
     const location = useLocation()
     const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
 
+    // Auto-play slideshow effect (5 seconds interval)
+    useEffect(() => {
+        // Pause auto-sliding if the user is actively watching a video
+        if (isPlaying) return
+
+        const interval = setInterval(() => {
+            handleNext()
+        }, 5000) // 5000ms = 5 seconds auto-advance
+
+        return () => clearInterval(interval)
+    }, [currentIndex, isPlaying])
+
     // Define nav links with path/target destinations
     const navLinks = [
         { name: 'Home', path: '/', isPage: true },
@@ -263,6 +275,18 @@ function LandingPage() {
     const togglePlay = () => {
         setIsPlaying(!isPlaying)
     }
+
+    // Auto-play slideshow effect (5 seconds interval)
+    useEffect(() => {
+        // Pause auto-sliding if the user is actively watching a video
+        if (isPlaying) return
+
+        const interval = setInterval(() => {
+            handleNext()
+        }, 5000)
+
+        return () => clearInterval(interval)
+    }, [currentIndex, isPlaying])
 
     const currentSlide = slides[currentIndex]
 
@@ -557,11 +581,11 @@ function LandingPage() {
                                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                 />
 
-                                <h1 className="absolute uppercase transform rotate-90 top-20 -right-10 text-center text-2xl font-thin font-stretch-120% text-white z-10">
+                                <h1 className="absolute right-3 top-7 text-[20px] tracking-[0.25em] text-white/80 uppercase [writing-mode:vertical-lr] font-light">
                                     {item.type}
                                 </h1>
 
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+                                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent"></div>
 
                                 <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 text-white flex flex-col justify-end">
                                     <h3 className="text-xl sm:text-2xl font-medium mb-1 tracking-wide">
@@ -673,34 +697,47 @@ function LandingPage() {
                 </div>
             </section>
 
-            <section className="w-full max-w-5xl mx-auto py-60 p-4 sm:p-6 font-sans">
-                <div className="relative w-full aspect-video md:aspect-21/10 rounded-2xl overflow-hidden bg-gray-900 shadow-2xl group">
+            <section className="w-full max-w-5xl mx-auto py-20 p-4 sm:p-6 font-sans">
+                <div className="relative w-full aspect-3/4 md:aspect-21/10 rounded-2xl overflow-hidden bg-gray-900 shadow-2xl group">
 
-                    {/* Video / Image Display */}
-                    {isPlaying ? (
-                        <video
-                            src={currentSlide.videoUrl}
-                            className="w-full h-full object-cover"
-                            autoPlay
-                            controls
-                            onEnded={() => setIsPlaying(false)}
-                        />
-                    ) : (
-                        <img
-                            src={currentSlide.poster}
-                            alt={currentSlide.title}
-                            className="w-full h-full object-cover transition-all duration-700 ease-in-out"
-                        />
-                    )}
+                    {/* Animated Image / Video Container */}
+                    {/* Removed mode="wait" to allow simultaneous crossfade dissolve */}
+                    <AnimatePresence>
+                        {isPlaying ? (
+                            <motion.video
+                                key={`video-${currentIndex}`}
+                                src={currentSlide.videoUrl}
+                                className="absolute inset-0 w-full h-full object-cover z-0"
+                                autoPlay
+                                controls
+                                onEnded={() => setIsPlaying(false)}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 1, ease: 'easeInOut' }}
+                            />
+                        ) : (
+                            <motion.img
+                                key={`image-${currentIndex}`}
+                                src={currentSlide.poster}
+                                alt={currentSlide.title}
+                                className="absolute inset-0 w-full h-full object-cover z-0"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 1, ease: 'easeInOut' }}
+                            />
+                        )}
+                    </AnimatePresence>
 
                     {/* Gradient Overlay for Readable Text */}
                     {!isPlaying && (
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/20 pointer-events-none" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/20 pointer-events-none z-10" />
                     )}
 
                     {/* Top Right Counter Badge */}
                     {!isPlaying && (
-                        <div className="absolute top-6 right-6 text-white font-medium text-sm sm:text-base tracking-widest bg-black/20 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10">
+                        <div className="absolute top-6 right-6 text-white font-medium text-sm sm:text-base tracking-widest bg-black/20 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10 z-20">
                             {currentIndex + 1}/{slides.length}
                         </div>
                     )}
@@ -710,10 +747,10 @@ function LandingPage() {
                         <button
                             onClick={togglePlay}
                             aria-label="Play video"
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#f1fc7b] hover:bg-[#e2f063] flex items-center justify-center transition-transform duration-300 hover:scale-110 active:scale-95 shadow-lg z-10"
+                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#f1fc7b] hover:bg-[#e2f063] flex items-center justify-center transition-transform duration-300 hover:scale-110 active:scale-95 shadow-lg z-20"
                         >
                             <svg
-                                className="w-6 h-6 text-black fill-current translate-x-0.5"
+                                className="w-8 h-8 text-black fill-current translate-x-0.5"
                                 viewBox="0 0 24 24"
                             >
                                 <path d="M8 5v14l11-7z" />
@@ -723,11 +760,20 @@ function LandingPage() {
 
                     {/* Bottom Overlay Controls & Title */}
                     {!isPlaying && (
-                        <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between z-10">
-                            {/* Slide Title */}
-                            <h2 className="text-white text-xl sm:text-2xl md:text-3xl font-normal tracking-tight drop-shadow-md">
-                                {currentSlide.title}
-                            </h2>
+                        <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between z-20">
+                            {/* Slide Title with Text Fade Animation */}
+                            <AnimatePresence mode="wait">
+                                <motion.h2
+                                    key={`title-${currentIndex}`}
+                                    initial={{ opacity: 0 }} // Minimalist dissolve for text too
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.5 }}
+                                    className="text-white text-xl sm:text-2xl md:text-3xl font-normal tracking-tight drop-shadow-md"
+                                >
+                                    {currentSlide.title}
+                                </motion.h2>
+                            </AnimatePresence>
 
                             {/* Navigation Arrows */}
                             <div className="flex items-center space-x-3">
@@ -773,6 +819,7 @@ function LandingPage() {
                     )}
                 </div>
             </section>
+
 
             <section className="bg-white py-60 px-4 sm:px-8 md:px-12 lg:px-20 font-sans text-gray-900">
                 <div className="max-w-6xl mx-auto">

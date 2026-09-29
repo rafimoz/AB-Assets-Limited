@@ -49,8 +49,8 @@ export default function Footer() {
             Seamless <span className="font-serif italic font-light">Life</span>
           </h2>
 
-          <a
-            href="#explore"
+          <Link
+            to="/properties"
             className="mt-8 inline-flex items-center gap-1.5 bg-[#f1fc7b] hover:bg-[#e2f063] text-black text-xs sm:text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg"
           >
             Explore Homes
@@ -66,7 +66,7 @@ export default function Footer() {
                 d="M7 17L17 7M17 7H7M17 7V17"
               />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -132,22 +132,22 @@ export default function Footer() {
             </div>
             <ul className="space-y-2 text-xs sm:text-sm text-gray-300 font-normal">
               <li>
-                <a href="#facebook" className="hover:text-white transition-colors">
+                <a href="https://www.facebook.com/profile.php?id=61580652183502" className="hover:text-white transition-colors">
                   Facebook
                 </a>
               </li>
               <li>
-                <a href="#instagram" className="hover:text-white transition-colors">
+                <a href="https://www.instagram.com/abassetsltd/" className="hover:text-white transition-colors">
                   Instagram
                 </a>
               </li>
               <li>
-                <a href="#linkedin" className="hover:text-white transition-colors">
+                <a href="https://www.linkedin.com/company/abassets" className="hover:text-white transition-colors">
                   Linkedin
                 </a>
               </li>
               <li>
-                <a href="#twitter" className="hover:text-white transition-colors">
+                <a href="https://twitter.com/abassets" className="hover:text-white transition-colors">
                   Twitter
                 </a>
               </li>

@@ -9,34 +9,44 @@ export function About() {
   return (
     <>
       <div className="min-h-screen text-[#222222] font-sans antialiased selection:bg-[#0096B4] selection:text-white">
-
-        <section className="relative h-screen min-h-[600px] flex flex-col justify-between items-center text-center overflow-hidden">
-          {/* Background Dark Rooftop Image with Overlay */}
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-1000 scale-105"
-            style={{
-              backgroundImage: `url('https://abcl.com.bd/wp-content/uploads/2025/09/WhatsApp-Image-2025-08-28-at-2.23.17-PM-5.jpeg')`
-            }}
+        {/* 1. Header Bar */}
+        <header className="sticky top-0 z-10 bg-black text-white px-6 sm:px-12 py-3 flex items-center justify-between border-b border-gray-800">
+          <Link
+            to="/"
+            className="flex items-center space-x-2 text-xs font-medium tracking-widest uppercase hover:text-gray-300 transition-colors"
           >
-            {/* Subtle dark gradient overlay to ensure readable white hero title */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#101010]/90" />
-          </div>
+            <svg className="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            <span>HOME</span>
+          </Link>
 
-          {/* Hero Main Content */}
-          <div className="relative z-10 flex flex-col items-center justify-center flex-1 px-4 pt-20">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extralight tracking-[0.15em] text-white mb-4">
-              About Us
-            </h1>
-            <p className="text-sm md:text-base tracking-[0.35em] text-cyan-200 uppercase font-light">
-              redesigning lives
-            </p>
+          <div className="flex items-center space-x-6 text-xs tracking-widest uppercase">
+            <Link
+              to="/contact"
+              className="border border-gray-600 px-3 py-1 hover:bg-white hover:text-black transition-colors"
+            >
+              CONTACT US
+            </Link>
           </div>
+        </header>
 
-          {/* Floating Animated Scroll Mouse Icon */}
-          <div className="relative z-10 mb-8 flex flex-col items-center animate-bounce opacity-80 hover:opacity-100 transition-opacity cursor-pointer">
-            <a href="#intro" className="p-2 border-2 border-white/40 rounded-full">
-              <ChevronDown className="w-5 h-5 text-white" />
-            </a>
+        {/* 2. Hero Header Section */}
+        <section className="relative w-full h-[60vh] sm:h-[75vh] overflow-hidden">
+          <img
+            src="https://abcl.com.bd/wp-content/uploads/2025/09/WhatsApp-Image-2025-08-28-at-2.23.17-PM-5.jpeg"
+            alt="Properties Hero"
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20 flex items-end">
+            <div className="text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-7xl mx-auto px-6 sm:px-12 py-10 w-full text-white">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-extralight tracking-[0.15em] text-white mb-4">
+                About Us
+              </h1>
+              <p className="text-sm md:text-base tracking-[0.35em] text-cyan-200 uppercase font-light">
+                redesigning lives
+              </p>
+            </div>
           </div>
         </section>
 
@@ -166,7 +176,7 @@ export function About() {
                 <div className="relative z-10 shadow-xl rounded-lg overflow-hidden">
                   <img
                     src="https://lh3.googleusercontent.com/d/1AQfoO9E4TfIHP7Xz9uoW_uR5XF0T2vnS"
-                    className="w-full h-[380px] sm:h-[420px] object-cover object-top transition-all duration-500"
+                    className="w-full h-95 sm:h-105 object-cover object-top transition-all duration-500"
                   />
                 </div>
               </div>
@@ -186,14 +196,13 @@ export function About() {
             </div>
 
             {/* Right Side: Quote Section */}
-            <div className="lg:col-span-7 space-y-6">
+            <div className="lg:col-span-7">
               {/* Quotation Marks Symbol */}
-              <div className="text-[#00A8CC] text-6xl font-serif leading-none select-none">
+              <div className="text-[#00A8CC] text-6xl select-none">
                 &ldquo;&ldquo;
               </div>
-
               {/* Primary Quote Statement */}
-              <blockquote className="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-800 leading-snug font-medium tracking-normal">
+              <blockquote className="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-800 leading-snug tracking-normal">
                 At AB Assets Limited, our mission is to create exceptional living spaces that combine modern architecture with prime locations. Supported by the 40-year legacy of the AB Group of Companies, we leverage decades of expertise across infrastructure and heavy development to deliver real estate projects of uncompromised quality.
                 Whether developing premium residential communities or commercial assets, we remain committed to transparency, timely execution, and elevating the standards of urban living.
               </blockquote>
@@ -207,28 +216,26 @@ export function About() {
           {/* Vision Block */}
           <div className="space-y-4">
             <div className="flex items-center space-x-6">
-              <h2 className="text-3xl md:text-4xl font-light font-serif text-gray-900 tracking-wide whitespace-nowrap">
+              <h2 className="text-3xl md:text-4xl font-medium text-gray-900 tracking-wide whitespace-nowrap">
                 Vision
               </h2>
-              <div className="w-full h-[1px] bg-gray-400/60" />
+              <div className="w-full h-0.5 bg-gray-400/60" />
             </div>
-            <p className="text-xs md:text-sm text-gray-600 leading-relaxed font-light tracking-wide max-w-4xl">
-              Lorem ipsum dolor sit amet, consectetur. Nisl vulputate mus velit est amet, id.
-              Arcu, sed aenean tortor quisque sit id dolor integer. Dictum dictum sit.
+            <p className="text-sm md:text-lg text-gray-600 leading-relaxed font-light tracking-wide max-w-4xl">
+              To be one of the Fortune 500 companies that our customers want to work with and our employees are proud to work for.
             </p>
           </div>
 
           {/* Mission Block with Line Divider */}
           <div className="space-y-4">
             <div className="flex items-center space-x-6">
-              <h2 className="text-3xl md:text-4xl font-light font-serif text-gray-900 tracking-wide whitespace-nowrap">
+              <h2 className="text-3xl md:text-4xl font-medium text-gray-900 tracking-wide whitespace-nowrap">
                 Mission
               </h2>
-              <div className="w-full h-[1px] bg-gray-400/60" />
+              <div className="w-full h-0.5 bg-gray-400/60" />
             </div>
-            <p className="text-xs md:text-sm text-gray-600 leading-relaxed font-light tracking-wide max-w-4xl">
-              Lorem ipsum dolor sit amet, consectetur. Nisl vulputate mus velit est amet, id.
-              Arcu, sed aenean tortor quisque sit id dolor integer. Dictum dictum sit.
+            <p className="text-sm md:text-lg text-gray-600 leading-relaxed font-light tracking-wide max-w-4xl">
+              We are committed to creating value for our customers through wide range of products and superior services and ensure highest level of customer satisfaction and achieve sustainable business growth.
             </p>
           </div>
         </section>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronDown, MapPin, Phone, MessageSquare, Mail, Send, CheckCircle2 } from 'lucide-react';
 import Footer from '../components/Footer';
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 
 const Contact = () => {
     // Result message state
@@ -11,6 +12,8 @@ const Contact = () => {
         fullName: '',
         phoneNumber: '',
         emailAddress: '',
+        size: '',
+        location: '',
         message: ''
     });
 
@@ -77,41 +80,50 @@ const Contact = () => {
 
     return (
         <>
-
-            <section className="relative h-screen min-h-100 flex flex-col justify-between items-center text-center overflow-hidden">
-                {/* Background Dark Rooftop Image with Overlay */}
-                <div
-                    className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-1000 scale-105"
-                    style={{
-                        backgroundImage: `url('https://abcl.com.bd/wp-content/uploads/2025/09/WhatsApp-Image-2025-08-28-at-2.23.17-PM-5.jpeg')`
-                    }}
+            {/* 1. Header Bar */}
+            <header className="sticky top-0 z-10 bg-black text-white px-6 sm:px-12 py-3 flex items-center justify-between border-b border-gray-800">
+                <Link
+                    to="/"
+                    className="flex items-center space-x-2 text-xs font-medium tracking-widest uppercase hover:text-gray-300 transition-colors"
                 >
-                    {/* Subtle dark gradient overlay to ensure readable white hero title */}
-                    <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/40 to-[#101010]/90" />
-                </div>
+                    <svg className="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                    <span>HOME</span>
+                </Link>
 
-                {/* Hero Main Content */}
-                <div className="relative z-10 flex flex-col items-center justify-center flex-1 px-4 pt-20">
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-extralight tracking-[0.15em] text-white mb-4">
-                        Contact Us
-                    </h1>
-                    <p className="text-sm md:text-base tracking-[0.35em] text-cyan-200 uppercase font-light">
-                        Get in touch with us
-                    </p>
+                <div className="flex items-center space-x-6 text-xs tracking-widest uppercase">
+                    <Link
+                        to="/contact"
+                        className="border border-gray-600 px-3 py-1 hover:bg-white hover:text-black transition-colors"
+                    >
+                        CONTACT US
+                    </Link>
                 </div>
-
-                {/* Floating Animated Scroll Mouse Icon */}
-                <div className="relative z-10 mb-8 flex flex-col items-center animate-bounce opacity-80 hover:opacity-100 transition-opacity cursor-pointer">
-                    <a href="#intro" className="p-2 border-2 border-white/40 rounded-full">
-                        <ChevronDown className="w-5 h-5 text-white" />
-                    </a>
+            </header>
+            {/* 2. Hero Header Section */}
+            <section className="relative w-full h-[60vh] sm:h-[75vh] overflow-hidden">
+                <img
+                    src="https://abcl.com.bd/wp-content/uploads/2025/09/WhatsApp-Image-2025-08-28-at-2.23.17-PM-5.jpeg"
+                    alt="Properties Hero"
+                    className="w-full h-full object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20 flex items-end">
+                    <div className="text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-7xl mx-auto px-6 sm:px-12 py-10 w-full text-white">
+                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extralight tracking-[0.15em] text-white mb-4">
+                            Contact Us
+                        </h1>
+                        <p className="text-sm md:text-base tracking-[0.35em] text-cyan-200 uppercase font-light">
+                            Get in touch with us
+                        </p>
+                    </div>
                 </div>
             </section>
 
             {/* ==========================================
                 2. CONTACT INFO & GOOGLE MAP SECTION
             ========================================== */}
-            <section className="w-full py-30 px-4 sm:px-6 md:px-12 bg-slate-50 relative overflow-hidden">
+            <section className="w-full py-30 p-4 sm:p-6 md:p-8 bg-slate-50 relative overflow-hidden">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 min-h-95">
                     {/* Left: Contact Details */}
                     <div className="md:col-span-5 p-2 sm:p-4 md:p-8 flex flex-col justify-center space-y-6 bg-white">
@@ -185,7 +197,6 @@ const Contact = () => {
                         </div>
                     </div>
                     {/* Right: Embedded Google Map */}
-                    {/* Right: Embedded Google Map */}
                     <div className="md:col-span-7 w-full h-80 md:h-auto bg-gray-200 relative min-h-87.5">
                         <iframe
                             title="AB Assets Limited Office Location"
@@ -212,13 +223,13 @@ const Contact = () => {
                     }}
                 />
 
-                <div className="max-w-6xl mx-auto relative z-10">
+                <div className="max-w-6xl mx-auto relative">
                     <div className="rounded-2xl shadow-2xl border border-gray-100 overflow-hidden grid grid-cols-1 md:grid-cols-12">
 
                         {/* Form Left Image */}
                         <div className="md:col-span-6 relative min-h-65 md:min-h-120">
                             <img
-                                src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop"
+                                src="https://abcl.com.bd/wp-content/uploads/2025/09/WhatsApp-Image-2025-08-28-at-2.23.17-PM-3.jpeg"
                                 alt="Modern Office Meeting"
                                 className="absolute inset-0 w-full h-full object-cover"
                             />
@@ -226,7 +237,7 @@ const Contact = () => {
                         </div>
 
                         {/* Form Right Inputs */}
-                        <div className="md:col-span-6 p-2 sm:p-4 md:p-8 flex flex-col justify-center">
+                        <div className="md:col-span-6 p-4 sm:p-6 md:p-8 flex flex-col justify-center">
                             <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-6 uppercase">
                                 CONTACT US
                             </h2>
@@ -240,7 +251,7 @@ const Contact = () => {
                                     </p>
                                 </div>
                             ) : (
-                                <form onSubmit={onSubmit} className="space-y-4">
+                                <form onSubmit={onSubmit} className=" space-y-8 rounded-none">
                                     {/* Full Name */}
                                     <div>
                                         <input
@@ -249,21 +260,8 @@ const Contact = () => {
                                             required
                                             value={formData.fullName}
                                             onChange={handleChange}
-                                            placeholder="Full Name*"
-                                            className="w-full px-4 py-3 text-xs sm:text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all placeholder:text-gray-400"
-                                        />
-                                    </div>
-
-                                    {/* Phone Number */}
-                                    <div>
-                                        <input
-                                            type="tel"
-                                            name="phoneNumber"
-                                            required
-                                            value={formData.phoneNumber}
-                                            onChange={handleChange}
-                                            placeholder="Phone Number*"
-                                            className="w-full px-4 py-3 text-xs sm:text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all placeholder:text-gray-400"
+                                            placeholder="Your Name"
+                                            className="w-full bg-transparent px-0 py-2.5 text-base text-gray-700 border-b border-gray-400 focus:outline-none focus:border-gray-800 placeholder:text-gray-500 transition-colors"
                                         />
                                     </div>
 
@@ -275,30 +273,69 @@ const Contact = () => {
                                             required
                                             value={formData.emailAddress}
                                             onChange={handleChange}
-                                            placeholder="Email Address*"
-                                            className="w-full px-4 py-3 text-xs sm:text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all placeholder:text-gray-400"
+                                            placeholder="Your email"
+                                            className="w-full bg-transparent px-0 py-2.5 text-base text-gray-700 border-b border-gray-400 focus:outline-none focus:border-gray-800 placeholder:text-gray-500 transition-colors"
                                         />
                                     </div>
 
-                                    {/* Message */}
+                                    {/* Phone Number */}
+                                    <div>
+                                        <input
+                                            type="tel"
+                                            name="phoneNumber"
+                                            required
+                                            value={formData.phoneNumber}
+                                            onChange={handleChange}
+                                            placeholder="Phone Number"
+                                            className="w-full bg-transparent px-0 py-2.5 text-base text-gray-700 border-b border-gray-400 focus:outline-none focus:border-gray-800 placeholder:text-gray-500 transition-colors"
+                                        />
+                                    </div>
+
+                                    {/* Preferred Size */}
+                                    <div>
+                                        <input
+                                            type="text"
+                                            name="size"
+                                            required
+                                            value={formData.size}
+                                            onChange={handleChange}
+                                            placeholder="Preferred size in sqft"
+                                            className="w-full bg-transparent px-0 py-2.5 text-base text-gray-700 border-b border-gray-400 focus:outline-none focus:border-gray-800 placeholder:text-gray-500 transition-colors"
+                                        />
+                                    </div>
+
+                                    {/* Preferred Location */}
+                                    <div>
+                                        <input
+                                            type="text"
+                                            name="location"
+                                            required
+                                            value={formData.location}
+                                            onChange={handleChange}
+                                            placeholder="Your preferred location"
+                                            className="w-full bg-transparent px-0 py-2.5 text-base text-gray-700 border-b border-gray-400 focus:outline-none focus:border-gray-800 placeholder:text-gray-500 transition-colors"
+                                        />
+                                    </div>
+
+                                    {/* Your Message */}
                                     <div>
                                         <textarea
                                             name="message"
-                                            rows="4"
+                                            rows="2"
                                             required
                                             value={formData.message}
                                             onChange={handleChange}
-                                            placeholder="Message*"
-                                            className="w-full px-4 py-3 text-xs sm:text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all resize-none placeholder:text-gray-400"
+                                            placeholder="Your Message"
+                                            className="w-full bg-transparent px-0 py-2.5 text-base text-gray-700 border-b border-gray-400 focus:outline-none focus:border-gray-800 placeholder:text-gray-500 transition-colors"
                                         />
                                     </div>
 
                                     {/* Submit Button */}
-                                    <div>
+                                    <div className="pt-4">
                                         <button
                                             type="submit"
                                             disabled={isSubmitting}
-                                            className="w-full px-8 py-3 border border-gray-800 text-gray-900 font-semibold text-xs uppercase tracking-wider rounded-lg hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-900 transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-50"
+                                            className="w-full py-3.5 border border-gray-900 text-gray-900 font-medium text-xs uppercase tracking-widest hover:bg-gray-900 hover:text-white transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50"
                                         >
                                             {isSubmitting ? (
                                                 <span>Sending...</span>
