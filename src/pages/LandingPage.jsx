@@ -98,7 +98,7 @@ function LandingPage() {
 
     const properties = [
         {
-            id: 1,
+            id: 4,
             title: 'GAUSE PAK AB TOWER',
             beds: 3,
             baths: 2,
@@ -108,7 +108,7 @@ function LandingPage() {
             image: 'https://abcl.com.bd/wp-content/uploads/2025/09/WhatsApp-Image-2025-08-28-at-2.23.18-PM.jpeg',
         },
         {
-            id: 2,
+            id: 3,
             title: 'MORNING GLORY',
             beds: 3,
             baths: 2,
@@ -118,15 +118,15 @@ function LandingPage() {
             image: 'https://lh3.googleusercontent.com/d/1BhjNsS6-Ks5rm6cfxFFa2S87IGiY3Beq',
         },
         {
-            id: 3,
-            title: 'SERENDIPITY',
+            id: 5,
+            title: 'CITIZEN TOWER',
             beds: 3,
             baths: 2,
             area: '2,850 SFT',
-            type: 'Residential',
-            location: 'Jolshiri Abashon, Dhaka',
-            image: 'https://lh3.googleusercontent.com/d/18CSHTDHxyycpDtD4V-JU56sWpxomw_Wq',
-        },
+            type: 'Commercial',
+            location: 'Tejgaon, Dhaka',
+            image: 'https://abcl.com.bd/wp-content/uploads/2025/09/Citizen-tower-web-5.jpg',
+        }
     ];
 
     // Helper function to handle smooth scrolling smoothly across all browsers
@@ -571,9 +571,10 @@ function LandingPage() {
                         className="flex md:grid md:grid-cols-3 gap-5 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 scrollbar-none -mx-4 px-4 md:mx-0 md:px-0"
                     >
                         {properties.map((item) => (
-                            <div
+                            <Link
+                                to={`/properties/${item.id}`}
                                 key={item.id}
-                                className="group relative h-112.5 sm:h-120 w-[85vw] min-w-[85vw] sm:w-[60vw] sm:min-w-[60vw] md:w-full md:min-w-0 flex-shrink-0 snap-center rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300"
+                                className="group relative h-112.5 sm:h-120 w-[85vw] min-w-[85vw] sm:w-[60vw] sm:min-w-[60vw] md:w-full md:min-w-0 flex-shrink-0 snap-center rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 block"
                             >
                                 <img
                                     src={item.image}
@@ -581,13 +582,13 @@ function LandingPage() {
                                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                 />
 
-                                <h1 className="absolute right-3 top-7 text-[20px] tracking-[0.25em] text-white/80 uppercase [writing-mode:vertical-lr] font-light">
+                                <h1 className="absolute right-3 top-7 text-[20px] tracking-[0.25em] text-white/80 uppercase [writing-mode:vertical-lr] font-light z-10">
                                     {item.type}
                                 </h1>
 
-                                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent"></div>
+                                <div className="absolute inset-0 bg-linear-to-t from-black/40 via-black/10 to-transparent"></div>
 
-                                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 text-white flex flex-col justify-end">
+                                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 text-white flex flex-col justify-end z-10">
                                     <h3 className="text-xl sm:text-2xl font-medium mb-1 tracking-wide">
                                         {item.title}
                                     </h3>
@@ -607,7 +608,7 @@ function LandingPage() {
                                         <span className="truncate">{item.location}</span>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
                         ))}
                     </div>
 
@@ -821,20 +822,17 @@ function LandingPage() {
             </section>
 
 
-            <section className="bg-white py-60 px-4 sm:px-8 md:px-12 lg:px-20 font-sans text-gray-900">
+            {/* <section className="bg-white py-60 px-4 sm:px-8 md:px-12 lg:px-20 font-sans text-gray-900">
                 <div className="max-w-6xl mx-auto">
 
-                    {/* Section Title */}
                     <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-black mb-10 leading-tight">
                         Our Trending <br /> Article
                     </h2>
 
-                    {/* Grid layout: Uses 2 columns on mobile (grid-cols-2) to preserve side-by-side staggered height comparison */}
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 items-start">
                         {articles.map((article) => (
                             <article key={article.id} className="flex flex-col group cursor-pointer">
 
-                                {/* Aspect Ratio Container (fixed aspect ratio applied on mobile & desktop) */}
                                 <div
                                     className={`w-full ${article.aspectRatio} rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100 mb-2.5 sm:mb-3`}
                                 >
@@ -845,12 +843,10 @@ function LandingPage() {
                                     />
                                 </div>
 
-                                {/* Date */}
                                 <time className="text-[11px] sm:text-sm text-gray-400 font-normal mb-1">
                                     {article.date}
                                 </time>
 
-                                {/* Title */}
                                 <h3 className="text-sm sm:text-lg font-semibold text-black leading-snug group-hover:text-gray-700 transition-colors">
                                     {article.title}
                                 </h3>
@@ -860,7 +856,7 @@ function LandingPage() {
                     </div>
 
                 </div>
-            </section>
+            </section>  */}
 
             <section className="bg-white py-60 px-4 sm:px-8 md:px-12 lg:px-20 font-sans text-gray-900">
                 <div className="max-w-5xl mx-auto">
