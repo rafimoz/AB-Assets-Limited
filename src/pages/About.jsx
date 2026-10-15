@@ -34,7 +34,7 @@ export function About() {
         {/* 2. Hero Header Section */}
         <section className="relative w-full h-[60vh] sm:h-[75vh] overflow-hidden">
           <img
-            src="https://abcl.com.bd/wp-content/uploads/2025/09/WhatsApp-Image-2025-08-28-at-2.23.17-PM-5.jpeg"
+            src="https://abcl.com.bd/wp-content/uploads/2025/09/WhatsApp-Image-2025-08-28-at-2.23.18-PM-4.jpeg"
             alt="Properties Hero"
             className="w-full h-full object-cover object-center"
           />
@@ -92,7 +92,7 @@ export function About() {
               </div>
 
               {/* Outline Pill Action Button */}
-              <div className="pt-4">
+              <div className="flex sm:justify-start justify-center">
                 <Link
                   to="/contact"
                   className="inline-flex items-center space-x-3 px-8 py-3 rounded-full border border-gray-400 hover:border-[#00A8CC] text-xs font-medium tracking-[0.2em] text-gray-800 uppercase hover:bg-[#00A8CC] hover:text-white transition-all duration-300 shadow-sm"
@@ -109,7 +109,7 @@ export function About() {
         <section id="values" className="max-w-7xl mx-auto px-6 py-16 md:py-24">
           {/* Section Heading */}
           <div className="text-center mb-16 space-y-3">
-            <h3 className="text-xs font-semibold tracking-[0.3em] uppercase text-gray-500">
+            <h3 className="text-sm font-semibold tracking-[0.3em] uppercase text-gray-500">
               OUR VALUES
             </h3>
             <p className="text-xl md:text-2xl lg:text-3xl font-serif text-gray-800 font-light tracking-tight max-w-2xl mx-auto">
@@ -173,7 +173,7 @@ export function About() {
                 <div className="absolute bottom-16 -right-6 left-12 h-[2px] bg-[#00A8CC]" />
 
                 {/* Main Executive Image Frame */}
-                <div className="relative z-10 shadow-xl rounded-lg overflow-hidden">
+                <div className="relative z-5 shadow-xl rounded-lg overflow-hidden">
                   <img
                     src="https://lh3.googleusercontent.com/d/1AQfoO9E4TfIHP7Xz9uoW_uR5XF0T2vnS"
                     className="w-full h-95 sm:h-105 object-cover object-top transition-all duration-500"

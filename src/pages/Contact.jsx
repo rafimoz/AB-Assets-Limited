@@ -149,7 +149,7 @@ const Contact = () => {
                             </div>
                             <div className="flex flex-col space-y-1">
                                 <a
-                                    href="https://wa.me/8801335211163"
+                                    href="https://wa.me/8801335211150"
                                     target="_blank"
                                     rel="noreferrer"
                                     className="text-xs sm:text-sm text-gray-700 hover:text-amber-600 font-medium transition-colors"
@@ -157,7 +157,7 @@ const Contact = () => {
                                     +8801335-211150
                                 </a>
                                 <a
-                                    href="https://wa.me/8801335211163"
+                                    href="https://wa.me/8801335211151"
                                     target="_blank"
                                     rel="noreferrer"
                                     className="text-xs sm:text-sm text-gray-700 hover:text-amber-600 font-medium transition-colors"
@@ -173,7 +173,7 @@ const Contact = () => {
                                     +8801335-211163
                                 </a>
                                 <a
-                                    href="https://wa.me/8801335211163"
+                                    href="https://wa.me/8801810035305"
                                     target="_blank"
                                     rel="noreferrer"
                                     className="text-xs sm:text-sm text-gray-700 hover:text-amber-600 font-medium transition-colors"
